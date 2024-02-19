@@ -12,7 +12,17 @@ function Prompt {
     return "PS " +  $prompt + "> "
 }
 # for busy box
-Remove-Item Alias:* -Force
+Remove-Alias -Force -Name cat
+Remove-Alias -Force -Name copy
+Remove-Alias -Force -Name cp
+Remove-Alias -Force -Name echo
+Remove-Alias -Force -Name ls
+Remove-Alias -Force -Name man
+Remove-Alias -Force -Name mv
+Remove-Alias -Force -Name pwd
+Remove-Alias -Force -Name rm
+Remove-Alias -Force -Name rmdir
+Remove-Alias -Force -Nam
 # use help
 # notepad $PROFILE
 # . $PROFILE
