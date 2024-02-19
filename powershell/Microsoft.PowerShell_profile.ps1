@@ -11,6 +11,8 @@ function Prompt {
     # PS 31414@FREET:rustlings>
     return "PS " +  $prompt + "> "
 }
+# for busy box
+Remove-Item Alias:* -Force
 # use help
 # notepad $PROFILE
 # . $PROFILE
