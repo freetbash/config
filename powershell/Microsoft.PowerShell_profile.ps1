@@ -1,15 +1,18 @@
 function Prompt {
     # 用户名
     $username = (Get-ChildItem Env:\USERNAME).Value
+    
     # 当前文件夹
-    $curdir = "$(Get-Location)".Split("\") | Select-Object -Last 1
+    $curdir = "$(Get-Location)".Split("\")
+    $drive = $curdir | Select-Object -First 1
+    $path = $curdir | Select-Object -Last 1
 
     $hostname = (Get-ChildItem Env:\COMPUTERNAME).Value
 
-    $prompt = $username +"@"+$hostname +":" + $curdir
+    $prompt = $username + "@" + $hostname + ":" + $drive + $path
     $prompt = "`e[1;37m" + $prompt + "`e[m"
     # PS 31414@FREET:rustlings>
-    return "PS " +  $prompt + "> "
+    return "PS " + $prompt + "> "
 }
 # for busy box
 Remove-Alias -Force -Name cat
@@ -22,7 +25,10 @@ Remove-Alias -Force -Name mv
 Remove-Alias -Force -Name pwd
 Remove-Alias -Force -Name rm
 Remove-Alias -Force -Name rmdir
-Remove-Alias -Force -Nam
+
+function k {
+    ssh kali;
+}
 # use help
 # notepad $PROFILE
 # . $PROFILE
